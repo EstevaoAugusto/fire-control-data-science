@@ -1,0 +1,31 @@
+from pathlib import Path
+import os
+
+ROOT_DIR = Path(__file__).parent.absolute()
+DATA_DIRECTORY_PATH = ROOT_DIR / "data"
+RAW_DATA_DIRECTORY_PATH = ROOT_DIR / "data" / "raw"
+PROCESSED_DATA_DIRECTORY_PATH = ROOT_DIR / "data" / "processed"
+METRICS_DIRECTORY_PATH = ROOT_DIR / "metrics"
+MODELS_DIRECTORY_PATH = ROOT_DIR / "models"
+REPORTS_DIRECTORY_PATH = ROOT_DIR / "reports"
+FEATURES_DIRECTORY_PATH = ROOT_DIR / "features"
+DASHBOARD_DIRECTORY_PATH = ROOT_DIR / "dashboard"
+INTERACTIVE_REPORTS_PATH = ROOT_DIR / "interactive_reports"
+IMGS_DIRECTORY_PATH = ROOT_DIR / "imgs"
+
+def create_dirs(*paths):
+    for path in paths:
+        path.mkdir(parents=True, exist_ok=True)
+
+create_dirs(
+    DATA_DIRECTORY_PATH,
+    RAW_DATA_DIRECTORY_PATH,
+    PROCESSED_DATA_DIRECTORY_PATH,
+    METRICS_DIRECTORY_PATH,
+    MODELS_DIRECTORY_PATH,
+    REPORTS_DIRECTORY_PATH,
+    FEATURES_DIRECTORY_PATH,
+    DASHBOARD_DIRECTORY_PATH,
+    INTERACTIVE_REPORTS_PATH,
+    IMGS_DIRECTORY_PATH
+)
