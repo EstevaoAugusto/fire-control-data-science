@@ -13,8 +13,16 @@ import joblib
 from pathlib import Path
 import sys
 
-# Adiciona o diretório pai (..) ao path do sistema
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Tenta usar o __file__, se falhar (comum em alguns kernels), usa o caminho atual
+try:
+    base_path = os.path.dirname(__file__)
+except NameError:
+    base_path = os.getcwd()
+
+# Adiciona o diretório pai (..) ao path do sistema de forma segura
+parent_dir = os.path.abspath(os.path.join(base_path, '..'))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
 import config_path
 
@@ -31,10 +39,11 @@ def save_pickle(obj, file_name: str):
     Returns:
         None
     """
-    if file_name not in '.pkl':
+    if not file_name.endswith('.pkl'):
         raise SyntaxError(f"ERRO: Arquivo {file_name} não possui no final o tipo '.pkl'")
     
-    with open(f"{config_path.MODELS_DIRECTORY_PATH}/{file_name}", 'wb') as f:
+    caminho_completo = os.path.join(config_path.MODELS_DIRECTORY_PATH, file_name)
+    with open(caminho_completo, 'wb') as f:
         pickle.dump(obj, f)
     
     print(f"Pickle salvou o modelo em '{config_path.MODELS_DIRECTORY_PATH}/{file_name}'")
@@ -50,20 +59,20 @@ def load_pickle(file_name: str):
         model: Objeto Python
     """
     
-    if file_name not in '.pkl':
+    if not file_name.endswith('pkl'):
         raise SyntaxError(f"ERRO: Arquivo {file_name} não possui no final o tipo '.pkl'")
     
     if not os.path.exists(f"{config_path.MODELS_DIRECTORY_PATH}/{file_name}"):
         raise FileNotFoundError(f"Arquivo não encontrado: {config_path.MODELS_DIRECTORY_PATH}/{file_name}")
     
     try:
-        with open(f"{config_path.MODELS_DIRECTORY_PATH}/{file_name}", 'rb') as f:
+        caminho_completo = os.path.join(config_path.MODELS_DIRECTORY_PATH, file_name)
+        with open(caminho_completo, 'rb') as f:
             model = pickle.load(f)
             print(f"Pickle carregou o modelo em '{config_path.MODELS_DIRECTORY_PATH}/{file_name}'")
             return model
     except Exception as e:
         print(f"Erro ao processar o arquivo {file_name}: {e}")
-        raise
 
 def save_joblib(modelo, nome_arquivo: str):
     """
@@ -76,13 +85,14 @@ def save_joblib(modelo, nome_arquivo: str):
     Returns:
         bool: True se salvo com sucesso, False se houver erro.
     """
-    if nome_arquivo not in '.joblib':
+    if not nome_arquivo.endswith('.joblib'):
         raise SyntaxError(f"ERRO: Arquivo {nome_arquivo} não possui no final o tipo '.joblib'")
     
     if not os.path.exists(f"{config_path.MODELS_DIRECTORY_PATH}"):
         raise FileNotFoundError(f"Caminho de diretório não existe: {config_path.MODELS_DIRECTORY_PATH}")
     
-    joblib.dump(modelo, f"{config_path.MODELS_DIRECTORY_PATH}/{nome_arquivo}")
+    caminho_completo = os.path.join(config_path.MODELS_DIRECTORY_PATH, nome_arquivo)
+    joblib.dump(modelo, caminho_completo)
     print(f"Joblib salvou o modelo em: {nome_arquivo}")
 
 def load_joblib(nome_arquivo: str):
@@ -92,19 +102,19 @@ def load_joblib(nome_arquivo: str):
     args:
         nome_arquivo (str): Nome do arquivo
     """
-    if nome_arquivo not in '.joblib':
+    if not nome_arquivo.endswith('.joblib'):
         raise SyntaxError(f"ERRO: Arquivo {nome_arquivo} não possui no final o tipo '.joblib'")
     
     if not os.path.exists(f"{config_path.MODELS_DIRECTORY_PATH}/{nome_arquivo}"):
         raise FileNotFoundError(f"Arquivo {nome_arquivo} não existe no diretório 'models'")
     
     try:
-        modelo = joblib.load(nome_arquivo)
+        caminho_completo = os.path.join(config_path.MODELS_DIRECTORY_PATH, nome_arquivo)
+        modelo = joblib.load(caminho_completo)
         print(f"Modelo carregado de: {nome_arquivo}")
         return modelo
     except Exception as e:
         print(f"Erro inesperado ocorreu: {e}")
-        raise
 
 def ensure_dir(path: Path | str):
     """Create directory if it doesn't exist."""

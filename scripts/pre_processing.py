@@ -98,12 +98,13 @@ def remove_blank_rows_cols_excel(df: pd.DataFrame, limite_nulos: float = 0.9) ->
     print(f"🧹 Limpeza concluída: {df.shape[1] - df_limpo.shape[1]} colunas removidas.")
     return df_limpo
 
-def concat_dfs(*dfs: pd.DataFrame, axis: int =0, ignore_index: bool = True, join: str ='outer') -> pd.DataFrame:
+def concat_dfs(df_left: pd.DataFrame, df_right: pd.DataFrame, axis_df: int = 0, ignore_index_df: bool = True, join_df: str ='outer') -> pd.DataFrame:
     """
     Concatena múltiplos DataFrames por linhas ou colunas.
     
     Parameters:
-        *dfs (pd.DataFrame): Dois ou mais DataFrames.
+        df_left (pd.DataFrame): DataFrame à esquerda.
+        df_right (pd.DataFrame): DataFrame à direita.
         axis (int): 0 para concatenar por linha (padrão), 1 para concatenar por coluna.
         ignore_index (bool): Indica se deve reiniciar o index após a concatenação (padrão True)
         join (str): 'outer' para união, 'inner' para interseção (padrão 'outer')
@@ -111,11 +112,7 @@ def concat_dfs(*dfs: pd.DataFrame, axis: int =0, ignore_index: bool = True, join
     Returns:
         DataFrame concatenado.
     """
-    if len(dfs) <= 1:
-        raise ValueError("ERRO: 'concat_dfs' precisa de pelo menos dois DataFrame.")
-    
-    concatenated_df = pd.concat(dfs, axis=axis, ignore_index=ignore_index, join=join)
-    return concatenated_df
+    return pd.concat([df_left, df_right], axis=axis_df, ignore_index=ignore_index_df, join=join_df)
 
 def fill_missing(df : pd.DataFrame, strategy : str ='zero') -> pd.DataFrame:
     """
@@ -151,7 +148,7 @@ def fill_missing(df : pd.DataFrame, strategy : str ='zero') -> pd.DataFrame:
             return df.fillna(df.median())
     except KeyError as e:
         print(f"ERRO: Uma das colunas não foi encontrada: {e}")
-        raise
+        return pd.DataFrame()
     except TypeError as e:
         print(f"ERRO: Não foi possível calcular a estatística. Verifique se as colunas são numéricas: {e}")
         return df
@@ -252,6 +249,6 @@ def merge_several_dfs(*dfs: pd.DataFrame, on: list[str] | None = None, how: str 
     
     # Itera pelos DataFrames restantes e faz o merge sequencial
     for df in dfs[1:]:
-        merge_df = pd.merge(merge_df, df, on=on, how=how)
+        merged_df = pd.merge(merged_df, df, on=on, how=how)
     
     return merged_df

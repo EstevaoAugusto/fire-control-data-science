@@ -9,10 +9,12 @@ Inclui:
 """
 
 import requests
+from typing import Tuple
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
+import numpy as np
 
 # -------------------------
 #  Auxiliador de manipulação de requisição HTTP
@@ -42,7 +44,7 @@ def download_file(url: str, file_name : str, save_path: Path | str):
 # -----------------------------
 # Auxiliadores de Dataframe
 # -----------------------------
-def describe_df(df):
+def describe_df(df: pd.DataFrame):
     """
     Imprime as informações, shape e descrição de um DataFrame
     """
@@ -52,7 +54,7 @@ def describe_df(df):
     print("\nDescription:")
     print(df.describe())
 
-def missing_summary(df):
+def missing_summary(df: pd.DataFrame):
     """
     Retorna os valores nulos e porcentagem por coluna
     """
@@ -63,24 +65,46 @@ def missing_summary(df):
 # -----------------------------
 # Auxiliadores de plotting
 # -----------------------------
-def plot_histogram(df, col, bins=30, figsize=(8,5)):
+def plot_histogram(df: pd.DataFrame, col: list[str], bins: int = 30, figsize: Tuple[int, int] = (10, 6)):
     plt.figure(figsize=figsize)
-    df[col].hist(bins=bins)
-    plt.title(f'Histogram of {col}')
-    plt.xlabel(col)
-    plt.ylabel('Frequency')
+    
+    # Adicionando o KDE para ver a "forma" da distribuição
+    ax = sns.histplot(df[col], bins=bins, kde=True, color='skyblue', edgecolor='black')
+    
+    # Adicionando linhas de média e mediana
+    mean = df[col].mean()
+    median = df[col].median()
+    
+    plt.axvline(mean, color='red', linestyle='--', label=f'Média: {mean:.2f}')
+    plt.axvline(median, color='green', linestyle='-', label=f'Mediana: {median:.2f}')
+    
+    plt.title(f'Distribuição de {col}', fontsize=15)
+    plt.legend()
+    plt.grid(axis='y', alpha=0.3)
     plt.show()
 
-def plot_correlation(df, figsize=(10,8)):
+def plot_correlation(df: pd.DataFrame, figsize: Tuple[int, int] = (12, 10)):
+    # Calcular apenas para colunas numéricas para evitar erros
+    corr = df.select_dtypes(include=[np.number]).corr()
+    
+    # Criar uma máscara para esconder o triângulo superior (repetido)
+    mask = np.triu(np.ones_like(corr, dtype=bool))
+    
     plt.figure(figsize=figsize)
-    sns.heatmap(df.corr(), annot=True, fmt=".2f", cmap='coolwarm')
-    plt.title('Correlation Matrix')
+    sns.heatmap(corr, mask=mask, annot=True, fmt=".2f", cmap='RdBu_r', 
+                center=0, square=True, linewidths=.5, cbar_kws={"shrink": .8})
+    
+    plt.title('Matriz de Correlação (Triângulo Inferior)', fontsize=15)
     plt.show()
 
-def plot_scatter(df, x_col, y_col, hue=None, figsize=(8,6)):
-    plt.figure(figsize=figsize)
-    sns.scatterplot(data=df, x=x_col, y=y_col, hue=hue)
-    plt.title(f'Scatter Plot: {x_col} vs {y_col}')
+def plot_scatter(df: pd.DataFrame, x_col, y_col, hue = None, regression: bool =True):
+    # Jointplot cria o scatter e os histogramas marginais simultaneamente
+    kind = "reg" if regression else "scatter"
+    
+    g = sns.jointplot(data=df, x=x_col, y=y_col, hue=hue, kind=kind, 
+                      height=8, ratio=5, marginal_kws=dict(bins=20, fill=True))
+    
+    g.figure.suptitle(f'Relação: {x_col} vs {y_col}', y=1.02, fontsize=15)
     plt.show()
 
 # -----------------------------
