@@ -113,18 +113,794 @@ O propósito dessa tabela é de integrar a vasta quantidade de dados a partir do
   </table>
 </details>
 
+### [MapBiomas - Fogo](https://plataforma.brasil.mapbiomas.org/coverage/coverage_lclu)
+
+#### [MonitorFogo - MapBiomas](https://plataforma.monitorfogo.mapbiomas.org/)
+
+<details>
+  <summary>Clique para ver o 'Dicionário de Dados - Estatísticas MonitorFogo'</summary>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Coluna</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Unidade / Formato</th>
+        <th>Classificação</th>
+        <th>Valores possíveis / Exemplo</th>
+        <th>Observações</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>Ano</td>
+          <td>Inteiro</td>
+          <td>Ano do registro do dado</td>
+          <td>YYYY</td>
+          <td>Temporal</td>
+          <td>2019, 2020</td>
+          <td>Representa o ano em que a queimada foi monitorada</td>
+        </tr>
+        <tr>
+          <td>Bioma</td>
+          <td>Texto</td>
+          <td>Bioma em que o dado foi registrado</td>
+          <td>Texto</td>
+          <td>Espacial</td>
+          <td>Amazônia, Cerrado</td>
+          <td>Identifica o bioma da área afetada</td>
+        </tr>
+        <tr>
+          <td>Estado</td>
+          <td>Texto</td>
+          <td>Estado brasileiro correspondente</td>
+          <td>Texto</td>
+          <td>Espacial</td>
+          <td>Acre, Pará</td>
+          <td>Indica a unidade federativa da área afetada</td>
+        </tr>
+        <tr>
+          <td>Mes_nome</td>
+          <td>Texto</td>
+          <td>Nome do mês do registro</td>
+          <td>Texto</td>
+          <td>Temporal</td>
+          <td>Abril, Agosto</td>
+          <td>Usado para análise sazonal de queimadas</td>
+        </tr>
+        <tr>
+          <td>Mes_num</td>
+          <td>Inteiro</td>
+          <td>Número do mês do registro</td>
+          <td>1–12</td>
+          <td>Temporal</td>
+          <td>4, 8</td>
+          <td>Facilita cálculos e gráficos de séries temporais</td>
+        </tr>
+        <tr>
+          <td>Categoria_principal</td>
+          <td>Texto</td>
+          <td>Classificação geral da área</td>
+          <td>Texto</td>
+          <td>Categórica</td>
+          <td>Antrópico, Natural</td>
+          <td>Indica se a área é alterada pelo homem ou preservada</td>
+        </tr>
+        <tr>
+          <td>Tipo_uso</td>
+          <td>Texto</td>
+          <td>Categoria ampla de uso do solo ou vegetação</td>
+          <td>Texto</td>
+          <td>Categórica</td>
+          <td>Agropecuária, Floresta</td>
+          <td>Primeiro nível de detalhamento da área</td>
+        </tr>
+        <tr>
+          <td>Subtipo_uso</td>
+          <td>Texto</td>
+          <td>Subcategoria detalhada do uso do solo ou vegetação</td>
+          <td>Texto</td>
+          <td>Categórica</td>
+          <td>Pastagem, Formação Florestal, Agricultura</td>
+          <td>Segundo nível de detalhamento</td>
+        </tr>
+        <tr>
+          <td>Subclasse</td>
+          <td>Texto</td>
+          <td>Divisão mais específica do uso do solo ou vegetação</td>
+          <td>Texto</td>
+          <td>Categórica</td>
+          <td>Pastagem, Lavoura Temporária</td>
+          <td>Terceiro nível de detalhamento</td>
+        </tr>
+        <tr>
+          <td>Classe_fina</td>
+          <td>Texto</td>
+          <td>Categoria ainda mais detalhada</td>
+          <td>Texto</td>
+          <td>Categórica</td>
+          <td>Pastagem, Outras Lavouras Temporárias</td>
+          <td>Quarto nível de detalhamento</td>
+        </tr>
+        <tr>
+          <td>Classe_final</td>
+          <td>Texto</td>
+          <td>Último nível de detalhamento da classificação</td>
+          <td>Texto</td>
+          <td>Categórica</td>
+          <td>Pastagem</td>
+          <td>Permite análise precisa do tipo exato de área afetada</td>
+        </tr>
+        <tr>
+          <td>Area_queimada_ha</td>
+          <td>Decimal</td>
+          <td>Área queimada no período registrado</td>
+          <td>Hectares (ha)</td>
+          <td>Quantitativa</td>
+          <td>11.043, 66041.145</td>
+          <td>Indica o tamanho da área afetada pelo fogo</td>
+    </tbody>
+  </table>
+</details>
+
+
 #### [TerraBrasilis INPE](https://terrabrasilis.dpi.inpe.br/queimadas/bdqueimadas/)
 
 ##### [TerraBrasilis INPE - Situação Atual](https://terrabrasilis.dpi.inpe.br/queimadas/situacao-atual/situacao_atual/)
 
+<details>
+  <summary>Clique para ver o 'Dicionário de Dados - Código de Múnicipios IBGE'</summary>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Coluna</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Unidade / Formato</th>
+        <th>Classificação</th>
+        <th>Valores possíveis / Exemplo</th>
+        <th>Observações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ID_UF</td>
+        <td>Inteiro</td>
+        <td>Identificador único de cada UF (Unidade Federal / Estado)</td>
+        <td>N/A</td>
+        <td>Dados Brutos</td>
+        <td>11, 12, 13, ...</td>
+        <td>Identificador é composto de apenas dois caracteres.</td>
+      </tr>
+      <tr>
+        <td>Nome_UF</td>
+        <td>String</td>
+        <td>Nome do UF (Unidade Federal / Estado)</td>
+        <td>N/A</td>
+        <td>Dados Brutos</td>
+        <td>Tocantins, Minas Gerais, Acre, etc.</td>
+        <td>Há 27 UFs (26 Estados e 1 Distrito Federal)</td>
+      </tr>
+      <tr>
+        <td>ID_MUN</td>
+        <td>Inteiro</td>
+        <td>Latitude do ponto de ocorrência</td>
+        <td>N/A</td>
+        <td>Dados Brutos</td>
+        <td>1100346, 1100023, 1100601, entre outros.</td>
+        <td>O identificador é composto de 7 caracteres. A qual os primeiros dois utiliza-se o ID_UF.</td>
+      </tr>
+      <tr>
+        <td>Nome_MUN</td>
+        <td>String</td>
+        <td>Nome do Município.</td>
+        <td>N/A</td>
+        <td>Dados Brutos</td>
+        <td>Arame, Bacuri, Xambioá, etc.</td>
+        <td>Existem 5.569 ou 5.570 municípios</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
 
+#### [Banco de Dados de Queimadas - BaseDosDados](https://basedosdados.org/dataset/f06f3cdc-b539-409b-b311-1ff8878fb8d9?table=a3696dc2-4dd1-4f7e-9769-6aa16a1556b8)
 
-##### [TerraBrasilis INPE - BDQUEIMADAS](https://terrabrasilis.dpi.inpe.br/queimadas/bdqueimadas/)
+<details>
+  <summary>Clique para ver o 'Dicionário de Dados - Código de Múnicipios IBGE'</summary>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Coluna</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Unidade / Formato</th>
+        <th>Classificação</th>
+        <th>Valores possíveis / Exemplo</th>
+        <th>Observações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ano</td>
+        <td>Inteiro</td>
+        <td>Ano de referência da passagem do satélite segundo o fuso horário de Greenwich (GMT).</td>
+        <td>XXXX</td>
+        <td>Dados Brutos</td>
+        <td>2019, 2020, 2021, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>mes</td>
+        <td>Inteiro</td>
+        <td>Mês de referência da passagem do satélite segundo o fuso horário de Greenwich (GMT).</td>
+        <td>XX</td>
+        <td>Dados Brutos</td>
+        <td>1, 2, 3 ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>data_hora</td>
+        <td>DateTime</td>
+        <td>Coluna agregada de data e hora da passagem do satélite o fuso horário de Greenwich (GMT).</td>
+        <td>AAAA-MM-DD HH:MM:SS</td>
+        <td>Dados Brutos</td>
+        <td>2024-01-16 03:57:00</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>bioma</td>
+        <td>String</td>
+        <td>Nome do Bioma</td>
+        <td>XXXX</td>
+        <td>Dados Brutos</td>
+        <td>Cerrado, Mata Atlântica, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>ano</td>
+        <td>Inteiro</td>
+        <td>Ano de referência da passagem do satélite segundo o fuso horário de Greenwich (GMT).</td>
+        <td>XXXX</td>
+        <td>Dados Brutos</td>
+        <td>2019, 2020, 2021, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>ano</td>
+        <td>Inteiro</td>
+        <td>Ano de referência da passagem do satélite segundo o fuso horário de Greenwich (GMT).</td>
+        <td>Qualitativo e Cardinal</td>
+        <td>Dados Brutos</td>
+        <td>2019, 2020, 2021, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>sigla_uf</td>
+        <td>String</td>
+        <td>Sigla da Unidade Federativa.</td>
+        <td>Qualitativo e Cardinal</td>
+        <td>Dados Brutos</td>
+        <td>3100203, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>latitude</td>
+        <td>Ponto Flutuante</td>
+        <td>Latitude do centro do píxel de fogo ativo apresentada em unidade de graus decimais.</td>
+        <td>Quantitativo e Continuo</td>
+        <td>Dados Brutos</td>
+        <td>-18.24325, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>longitude</td>
+        <td>Ponto Flutuante</td>
+        <td>Longitude do centro do píxel de fogo ativo apresentada em unidade de graus decimais</td>
+        <td>Quantitativo e Continuo</td>
+        <td>Dados Brutos</td>
+        <td>-18.24325, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>satelite</td>
+        <td>String</td>
+        <td>Nome do algoritmo utilizado e referencia ao satélite provedor da imagem.</td>
+        <td>Qualitativo e Cardinal</td>
+        <td>Dados Brutos</td>
+        <td>NOAA-21, NOAA-20, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>dias_sem_chuva</td>
+        <td>Inteiro</td>
+        <td>Número de dias sem chuva até a detecção do foco.</td>
+        <td>Quantitativo e Discreto</td>
+        <td>Dados Brutos</td>
+        <td>0, 1, 2, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>precipitacao</td>
+        <td>Ponto Flutuante</td>
+        <td>Valor da precipitação acumulada no dia até o momento da detecção do foco..</td>
+        <td>Quantitativo e Continuo</td>
+        <td>Dados Brutos</td>
+        <td>1.66, 3.3, 0.3, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>risco_fogo</td>
+        <td>Ponto Flutuante</td>
+        <td>Valor do Risco de Fogo previsto para o dia da detecção do foco.</td>
+        <td>Quantitativo e Continuo</td>
+        <td>Dados Brutos</td>
+        <td>0, 0.2, ...</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>potencia_radiativa_fogo</td>
+        <td>Ponto Flutuante</td>
+        <td>Fire Radiative Power, MW (megawatts).</td>
+        <td>Quantitativo e Continuo</td>
+        <td>Dados Brutos</td>
+        <td>2.1, 0, ...</td>
+        <td>N/A</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
 
+#### Dicionário de Dados - BDMEP Processado
+<details>
+  <summary>Clique para ver o 'Dicionário de Dados - BDMEP Processado'</summary>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Coluna</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Unidade / Formato</th>
+        <th>Classificação</th>
+        <th>Valores possíveis / Exemplo</th>
+        <th>Observações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>data_hora</td>
+        <td>DateTime</td>
+        <td>Data e hora da observação do foco de queimadas.</td>
+        <td>AAAA-MM-DD HH:MM:SS</td>
+        <td>Temporal</td>
+        <td>2024-01-16 03:57:00</td>
+        <td>Usado para séries temporais e agregações por dia.</td>
+      </tr>
+      <tr>
+        <td>bioma</td>
+        <td>String</td>
+        <td>Bioma onde o foco foi detectado.</td>
+        <td>Texto</td>
+        <td>Espacial</td>
+        <td>Amazônia, Cerrado, Mata Atlântica</td>
+        <td>Permite agrupar por bioma e estudar padrões regionais.</td>
+      </tr>
+      <tr>
+        <td>sigla_uf</td>
+        <td>String</td>
+        <td>Sigla da Unidade Federativa onde o evento foi detectado.</td>
+        <td>Texto</td>
+        <td>Espacial</td>
+        <td>MG, SP, AM</td>
+        <td>Identifica o estado do evento.</td>
+      </tr>
+      <tr>
+        <td>sigla_uf_nome</td>
+        <td>String</td>
+        <td>Nome do estado correspondente à sigla da UF.</td>
+        <td>Texto</td>
+        <td>Espacial</td>
+        <td>Minas Gerais, São Paulo</td>
+        <td>Usado para ordenação e exibição de informações geográficas.</td>
+      </tr>
+      <tr>
+        <td>id_municipio</td>
+        <td>Inteiro</td>
+        <td>Código IBGE do município.</td>
+        <td>Inteiro</td>
+        <td>Espacial</td>
+        <td>3100203, 5300108</td>
+        <td>Referência única do município no Brasil.</td>
+      </tr>
+      <tr>
+        <td>id_municipio_nome</td>
+        <td>String</td>
+        <td>Nome do município relacionado ao código IBGE.</td>
+        <td>Texto</td>
+        <td>Espacial</td>
+        <td>Belo Horizonte, Brasília</td>
+        <td>Usado para exibição e joins com outros datasets.</td>
+      </tr>
+      <tr>
+        <td>latitude</td>
+        <td>Ponto Flutuante</td>
+        <td>Latitude do ponto de detecção do foco.</td>
+        <td>Graus decimais</td>
+        <td>Espacial</td>
+        <td>-18.24325</td>
+        <td>Usado em mapas e análises geoespaciais.</td>
+      </tr>
+      <tr>
+        <td>longitude</td>
+        <td>Ponto Flutuante</td>
+        <td>Longitude do ponto de detecção do foco.</td>
+        <td>Graus decimais</td>
+        <td>Espacial</td>
+        <td>-48.24325</td>
+        <td>Usado em mapas e análises geoespaciais.</td>
+      </tr>
+      <tr>
+        <td>satelite</td>
+        <td>String</td>
+        <td>Nome do satélite ou algoritmo que detectou o foco.</td>
+        <td>Texto</td>
+        <td>Origem</td>
+        <td>NOAA-20, NOAA-21</td>
+        <td>Permite comparar sensores distintos.</td>
+      </tr>
+      <tr>
+        <td>dias_sem_chuva</td>
+        <td>Inteiro</td>
+        <td>Número de dias sem chuva antes da detecção do foco.</td>
+        <td>Inteiro</td>
+        <td>Climatológico</td>
+        <td>0, 1, 2, ...</td>
+        <td>Indicador de condição de secura do solo.</td>
+      </tr>
+      <tr>
+        <td>precipitacao</td>
+        <td>Ponto Flutuante</td>
+        <td>Precipitação acumulada no dia da detecção do foco.</td>
+        <td>mm</td>
+        <td>Climatológico</td>
+        <td>0.0, 1.66, 5.2</td>
+        <td>Usado para inferir condicionantes meteorológicos.</td>
+      </tr>
+      <tr>
+        <td>risco_fogo</td>
+        <td>Ponto Flutuante</td>
+        <td>Risco de fogo calculado para o ponto de detecção.</td>
+        <td>Escala numérica</td>
+        <td>Risco</td>
+        <td>0.0, 0.2, 0.8</td>
+        <td>Base para modelagem de risco e alertas.</td>
+      </tr>
+      <tr>
+        <td>potencia_radiativa_fogo</td>
+        <td>Ponto Flutuante</td>
+        <td>Fire Radiative Power (FRP), energia radiativa do foco.</td>
+        <td>MW</td>
+        <td>Físico</td>
+        <td>2.1, 15.7</td>
+        <td>Usado como proxy de intensidade do incêndio.</td>
+      </tr>
+      <tr>
+        <td>Data</td>
+        <td>Data</td>
+        <td>Data do registro extraída de data_hora.</td>
+        <td>AAAA-MM-DD</td>
+        <td>Temporal</td>
+        <td>2025-03-15</td>
+        <td>Útil para agregações diárias.</td>
+      </tr>
+      <tr>
+        <td>Hora</td>
+        <td>Tempo</td>
+        <td>Hora do registro extraída de data_hora.</td>
+        <td>HH:MM:SS</td>
+        <td>Temporal</td>
+        <td>03:49:00</td>
+        <td>Usado para análise horária.</td>
+      </tr>
+      <tr>
+        <td>Ano</td>
+        <td>Inteiro</td>
+        <td>Ano extraído de data_hora.</td>
+        <td>YYYY</td>
+        <td>Temporal</td>
+        <td>2022, 2023, 2024</td>
+        <td>Permite comparações anuais.</td>
+      </tr>
+      <tr>
+        <td>Mes</td>
+        <td>Inteiro</td>
+        <td>Mês extraído de data_hora.</td>
+        <td>1-12</td>
+        <td>Temporal</td>
+        <td>1, 12</td>
+        <td>Permite análise sazonal.</td>
+      </tr>
+      <tr>
+        <td>Dia</td>
+        <td>Inteiro</td>
+        <td>Dia do mês extraído de data_hora.</td>
+        <td>1-31</td>
+        <td>Temporal</td>
+        <td>1, 31</td>
+        <td>Auxilia em agregações diárias e inspeções de eventos.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
 
+### [INMET (Instituto Nacional de Meteorologia)](https://bdmep.inmet.gov.br/)
 
-#### [Banco de Dados de Queimadas - BaseDosDados](https://basedosdados.org/datasetf06f3cdc-b539-409b-b311-1ff8878fb8d9?table=a3696dc2-4dd1-4f7e-9769-6aa16a1556b8)
-
-
-
-### Dados Não Estruturados
+<details>
+  <summary>Clique para ver o 'Dicionário de Dados - INMET 2025'</summary>
+  <table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <th>Coluna</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Unidade / Formato</th>
+        <th>Classificação</th>
+        <th>Valores possíveis / Exemplo</th>
+        <th>Observações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>REGIAO</td>
+        <td>String</td>
+        <td>Região administrativa da estação meteorológica.</td>
+        <td>Texto</td>
+        <td>Geográfica</td>
+        <td>Centro-Oeste, Sul</td>
+        <td>Identifica a macrorregião de operação da estação.</td>
+      </tr>
+      <tr>
+        <td>UF</td>
+        <td>String</td>
+        <td>Estado onde está localizada a estação.</td>
+        <td>Texto</td>
+        <td>Geográfica</td>
+        <td>DF, GO, MG</td>
+        <td>Permite cruzamento com dados de unidades federativas.</td>
+      </tr>
+      <tr>
+        <td>ESTACAO</td>
+        <td>String</td>
+        <td>Nome da estação meteorológica.</td>
+        <td>Texto</td>
+        <td>Identificação</td>
+        <td>Brasília, Goiânia</td>
+        <td>Nome usado para referência de localização.</td>
+      </tr>
+      <tr>
+        <td>CODIGO (WMO)</td>
+        <td>String</td>
+        <td>Código WMO da estação meteorológica.</td>
+        <td>Texto</td>
+        <td>Identificação</td>
+        <td>82974, 83811</td>
+        <td>Usado como identificador internacional da estação.</td>
+      </tr>
+      <tr>
+        <td>LATITUDE</td>
+        <td>Ponto Flutuante</td>
+        <td>Latitude da estação meteorológica.</td>
+        <td>Graus decimais</td>
+        <td>Geográfica</td>
+        <td>-15.786, -16.678</td>
+        <td>Usado em mapas e georreferenciamento.</td>
+      </tr>
+      <tr>
+        <td>LONGITUDE</td>
+        <td>Ponto Flutuante</td>
+        <td>Longitude da estação meteorológica.</td>
+        <td>Graus decimais</td>
+        <td>Geográfica</td>
+        <td>-47.929, -49.264</td>
+        <td>Usado em mapas e georreferenciamento.</td>
+      </tr>
+      <tr>
+        <td>ALTITUDE</td>
+        <td>Ponto Flutuante</td>
+        <td>Altitude da estação sobre o nível do mar.</td>
+        <td>Metros</td>
+        <td>Geográfica</td>
+        <td>1172.0, 710.0</td>
+        <td>Importante para cálculos atmosféricos.</td>
+      </tr>
+      <tr>
+        <td>DATA DE FUNDACAO</td>
+        <td>String</td>
+        <td>Data de inauguração da estação.</td>
+        <td>Texto</td>
+        <td>Metadado</td>
+        <td>01/01/1990</td>
+        <td>Facilita histórico da rede de estações.</td>
+      </tr>
+      <tr>
+        <td>data</td>
+        <td>Data</td>
+        <td>Data da observação.</td>
+        <td>AAAA-MM-DD</td>
+        <td>Temporal</td>
+        <td>2025-03-15</td>
+        <td>Inclusa para facilitar agregações diárias.</td>
+      </tr>
+      <tr>
+        <td>hora</td>
+        <td>Texto</td>
+        <td>Hora da observação.</td>
+        <td>HHMM</td>
+        <td>Temporal</td>
+        <td>0300, 1200</td>
+        <td>Representa o horário do registro.</td>
+      </tr>
+      <tr>
+        <td>data_hora</td>
+        <td>DateTime</td>
+        <td>Data e hora combinadas em um só campo.</td>
+        <td>AAAA-MM-DD HH:MM</td>
+        <td>Temporal</td>
+        <td>2025-03-15 03:00</td>
+        <td>Útil para ordenação cronológica e análises temporais.</td>
+      </tr>
+      <tr>
+        <td>precip_total_mm</td>
+        <td>Ponto Flutuante</td>
+        <td>Precipitação total no período em milímetros.</td>
+        <td>mm</td>
+        <td>Climatológico</td>
+        <td>0.0, 12.5</td>
+        <td>Usado para relacionar chuva e risco de fogo.</td>
+      </tr>
+      <tr>
+        <td>pressao_atms_nivel_estacao_mB</td>
+        <td>Ponto Flutuante</td>
+        <td>Pressão atmosférica ao nível da estação.</td>
+        <td>mB</td>
+        <td>Climatológico</td>
+        <td>1013.2</td>
+        <td>Importante para análise de estabilidade atmosférica.</td>
+      </tr>
+      <tr>
+        <td>pressao_atms_maximo_na_hora_mB</td>
+        <td>Ponto Flutuante</td>
+        <td>Maior pressão registrada na hora.</td>
+        <td>mB</td>
+        <td>Climatológico</td>
+        <td>1018.5</td>
+        <td>Auxilia na detecção de frentes frias e sistemas de alta pressão.</td>
+      </tr>
+      <tr>
+        <td>pressao_atms_minimo_na_hora_mB</td>
+        <td>Ponto Flutuante</td>
+        <td>Menor pressão registrada na hora.</td>
+        <td>mB</td>
+        <td>Climatológico</td>
+        <td>1008.6</td>
+        <td>Útil para identificar cavados e baixa pressão.</td>
+      </tr>
+      <tr>
+        <td>radiacao_global_kj_m</td>
+        <td>Ponto Flutuante</td>
+        <td>Radiação solar global acumulada.</td>
+        <td>kJ/m²</td>
+        <td>Físico</td>
+        <td>1500.0</td>
+        <td>Importante para análise de evaporação e secura do solo.</td>
+      </tr>
+      <tr>
+        <td>temp_ar_bulbo_seco_C</td>
+        <td>Ponto Flutuante</td>
+        <td>Temperatura do ar medida com bulbo seco.</td>
+        <td>°C</td>
+        <td>Climatológico</td>
+        <td>25.8</td>
+        <td>Usado em diversos índices meteorológicos.</td>
+      </tr>
+      <tr>
+        <td>tempo_ponto_orvarlho_C</td>
+        <td>Ponto Flutuante</td>
+        <td>Temperatura de ponto de orvalho.</td>
+        <td>°C</td>
+        <td>Climatológico</td>
+        <td>18.5</td>
+        <td>Indica a umidade mínima antes da condensação.</td>
+      </tr>
+      <tr>
+        <td>temp_max_hora_C</td>
+        <td>Ponto Flutuante</td>
+        <td>Temperatura máxima dentro da hora.</td>
+        <td>°C</td>
+        <td>Climatológico</td>
+        <td>27.9</td>
+        <td>Usado para variação térmica e extremos.</td>
+      </tr>
+      <tr>
+        <td>temp_min_hora_C</td>
+        <td>Ponto Flutuante</td>
+        <td>Temperatura mínima dentro da hora.</td>
+        <td>°C</td>
+        <td>Climatológico</td>
+        <td>23.3</td>
+        <td>Usado para análise de amplitude térmica.</td>
+      </tr>
+      <tr>
+        <td>temp_orvalho_max_C</td>
+        <td>Ponto Flutuante</td>
+        <td>Maior temperatura de ponto de orvalho registrada na hora.</td>
+        <td>°C</td>
+        <td>Climatológico</td>
+        <td>19.8</td>
+        <td>Indica o nível máximo de vapor d'água no ar.</td>
+      </tr>
+      <tr>
+        <td>temp_orvalho_min_C</td>
+        <td>Ponto Flutuante</td>
+        <td>Menor temperatura de ponto de orvalho registrada na hora.</td>
+        <td>°C</td>
+        <td>Climatológico</td>
+        <td>16.1</td>
+        <td>Indica a variação do ponto de orvalho.</td>
+      </tr>
+      <tr>
+        <td>umidade_rel_max</td>
+        <td>Ponto Flutuante</td>
+        <td>Umidade relativa máxima no período.</td>
+        <td>%</td>
+        <td>Climatológico</td>
+        <td>98.0</td>
+        <td>Ajuda a avaliar a umidade disponível para combustão.</td>
+      </tr>
+      <tr>
+        <td>umidade_rel_min</td>
+        <td>Ponto Flutuante</td>
+        <td>Umidade relativa mínima no período.</td>
+        <td>%</td>
+        <td>Climatológico</td>
+        <td>42.5</td>
+        <td>Importante para análises de risco de incêndios.</td>
+      </tr>
+      <tr>
+        <td>umidade_relativa_ar</td>
+        <td>Ponto Flutuante</td>
+        <td>Umidade relativa do ar medida na estação.</td>
+        <td>%</td>
+        <td>Climatológico</td>
+        <td>65.0</td>
+        <td>Valor principal para índices de secura.</td>
+      </tr>
+      <tr>
+        <td>vento_direcao_horaria</td>
+        <td>Ponto Flutuante</td>
+        <td>Direção do vento em graus.</td>
+        <td>Graus</td>
+        <td>Dinâmico</td>
+        <td>90.0, 180.0</td>
+        <td>Importante para dispersão e propagação de fogo.</td>
+      </tr>
+      <tr>
+        <td>vento_rajada_max</td>
+        <td>Ponto Flutuante</td>
+        <td>Velocidade máxima de rajada de vento.</td>
+        <td>m/s</td>
+        <td>Dinâmico</td>
+        <td>10.5, 18.2</td>
+        <td>Maior influência em propagação de incêndios.</td>
+      </tr>
+      <tr>
+        <td>vento_velocidade_horaria</td>
+        <td>Ponto Flutuante</td>
+        <td>Velocidade média do vento na hora.</td>
+        <td>m/s</td>
+        <td>Dinâmico</td>
+        <td>2.4, 5.7</td>
+        <td>Útil para modelagem de transporte de fumaça.</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
