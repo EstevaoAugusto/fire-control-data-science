@@ -62,10 +62,22 @@ uv sync
 source .venv/Scripts/activate
 ```
 
-
+Crie os caminhos necessários para o projeto:
 
 ```bash
 python config_path.py
+```
+
+Crie o arquivo .env:
+
+```bash
+touch .env
+```
+
+O projeto faz uso do datalake oferecido pelo BaseDosDados, para testar o projeto, é preciso ter um projeto no Google Cloud, e adicionar seu ID no arquivo .env. 
+
+```bash
+echo "GOOGLE_CLOUD_ID_PROJECT='<id-projeto-aqui>'" > .env
 ```
 
 ## Responsáveis
