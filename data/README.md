@@ -904,3 +904,225 @@ O propósito dessa tabela é de integrar a vasta quantidade de dados a partir do
     </tbody>
   </table>
 </details>
+
+
+### [BDQUEIMADAS](https://terrabrasilis.dpi.inpe.br/queimadas/bdqueimadas/#exportar-dados)
+
+<details>
+  <summary>Clique para ver o 'Dicionário de Dados - BDQUEIMADAS'</summary>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+        <th>Coluna</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Unidade / Formato</th>
+        <th>Classificação</th>
+        <th>Valores possíveis / Exemplo</th>
+        <th>Observações</th>
+        </tr>
+        </thead>
+<tbody>
+<tr>
+<td><b>DataHora</b></td>
+<td>datetime64</td>
+<td>Instante exato da detecção do foco pelo satélite.</td>
+<td>AAAA/MM/DD HH:MM:SS</td>
+<td>Temporal</td>
+<td>2024/08/15 13:30:00</td>
+<td>Coluna "mãe" das colunas Data, Hora, Mes, etc.</td>
+</tr>
+<tr>
+<td><b>Satelite</b></td>
+<td>object/cat</td>
+<td>Identificação do satélite sensor que captou o foco.</td>
+<td>Texto</td>
+<td>Categórica</td>
+<td>AQUA_M-T, TERRA_M-T, NOAA-20</td>
+<td>Essencial para o modelo saber a fonte do dado.</td>
+</tr>
+<tr>
+<td><b>Pais</b></td>
+<td>object</td>
+<td>País onde o foco foi detectado.</td>
+<td>Texto</td>
+<td>Geográfica</td>
+<td>Brasil</td>
+<td>Geralmente constante no seu dataset.</td>
+</tr>
+<tr>
+<td><b>Nome_UF</b></td>
+<td>object</td>
+<td>Nome da Unidade da Federação.</td>
+<td>Texto</td>
+<td>Geográfica</td>
+<td>Minas Gerais</td>
+<td>Filtro principal do seu estudo.</td>
+</tr>
+<tr>
+<td><b>Nome_Município</b></td>
+<td>object/cat</td>
+<td>Nome do município da ocorrência.</td>
+<td>Texto</td>
+<td>Geográfica</td>
+<td>Belo Horizonte, Uberlândia</td>
+<td>Alta cardinalidade (muitos valores únicos).</td>
+</tr>
+<tr>
+<td><b>Bioma</b></td>
+<td>object/cat</td>
+<td>Ecossistema predominante no local do foco.</td>
+<td>Texto</td>
+<td>Ambiental</td>
+<td>Cerrado, Mata Atlântica</td>
+<td>Crucial para entender o comportamento do fogo.</td>
+</tr>
+<tr>
+<td><b>DiaSemChuva</b></td>
+<td>float/int</td>
+<td>Número de dias consecutivos sem precipitação.</td>
+<td>Dias</td>
+<td>Numérica</td>
+<td>0 a 120</td>
+<td>Principal indicador de seca acumulada.</td>
+</tr>
+<tr>
+<td><b>Precipitacao</b></td>
+<td>float</td>
+<td>Volume de chuva acumulado no período.</td>
+<td>mm</td>
+<td>Numérica</td>
+<td>0.0 a 150.0</td>
+<td>Influencia diretamente o RiscoFogo.</td>
+</tr>
+<tr>
+<td><b>RiscoFogo</b></td>
+<td>float</td>
+<td>Probabilidade estimada de ignição da vegetação.</td>
+<td>0.0 a 1.0</td>
+<td>Numérica</td>
+<td>0.1, 0.95, 1.0</td>
+<td>Frequentemente usado como Target.</td>
+</tr>
+<tr>
+<td><b>FRP</b></td>
+<td>float</td>
+<td>Potência Radiativa do Fogo (Intensidade).</td>
+<td>Megawatts (MW)</td>
+<td>Numérica</td>
+<td>1.0 a 3694.8</td>
+<td>Usaremos para classificar em Baixo, Médio e Alto.</td>
+</tr>
+<tr>
+<td><b>Latitude</b></td>
+<td>float32</td>
+<td>Coordenada geográfica (Eixo Y).</td>
+<td>Graus Decimais</td>
+<td>Geográfica</td>
+<td>-18.123456</td>
+<td>Manter precisão decimal para mapas.</td>
+</tr>
+<tr>
+<td><b>Longitude</b></td>
+<td>float32</td>
+<td>Coordenada geográfica (Eixo X).</td>
+<td>Graus Decimais</td>
+<td>Geográfica</td>
+<td>-44.123456</td>
+<td>Manter precisão decimal para mapas.</td>
+</tr>
+<tr>
+<td><b>Data</b></td>
+<td>object/date</td>
+<td>Data da ocorrência (sem a hora).</td>
+<td>AAAA-MM-DD</td>
+<td>Temporal</td>
+<td>2024-09-01</td>
+<td>Extraído da DataHora.</td>
+</tr>
+<tr>
+<td><b>Hora</b></td>
+<td>object/time</td>
+<td>Hora da ocorrência.</td>
+<td>HH:MM:SS</td>
+<td>Temporal</td>
+<td>15:45:00</td>
+<td>Importante para ciclos diários (dia/noite).</td>
+</tr>
+<tr>
+<td><b>Ano</b></td>
+<td>int16</td>
+<td>Ano da ocorrência.</td>
+<td>Ano</td>
+<td>Temporal</td>
+<td>2022, 2023, 2024, 2025</td>
+<td>Usado para a divisão Treino/Teste.</td>
+</tr>
+<tr>
+<td><b>Mes</b></td>
+<td>int8</td>
+<td>Mês da ocorrência.</td>
+<td>1 a 12</td>
+<td>Temporal</td>
+<td>8 (Agosto), 9 (Setembro)</td>
+<td>Sua feature de maior importância.</td>
+</tr>
+<tr>
+<td><b>Dia</b></td>
+<td>int8</td>
+<td>Dia do mês.</td>
+<td>1 a 31</td>
+<td>Temporal</td>
+<td>1, 15, 30</td>
+<td>Útil para análises de curto prazo.</td>
+</tr>
+<tr>
+<td><b>Hora_decimal</b></td>
+<td>float16</td>
+<td>Conversão da hora para formato numérico.</td>
+<td>0.0 a 23.99</td>
+<td>Temporal</td>
+<td>14.5 (equivale a 14:30)</td>
+<td>Facilita o cálculo matemático do modelo.</td>
+</tr>
+<tr>
+<td><b>ID_UF</b></td>
+<td>int8</td>
+<td>Código identificador do Estado.</td>
+<td>Código IBGE</td>
+<td>Geográfica</td>
+<td>31 (Minas Gerais)</td>
+<td>Geralmente redundante se for apenas MG.</td>
+</tr>
+<tr>
+<td><b>ID_Município</b></td>
+<td>int32</td>
+<td>Código identificador do Município.</td>
+<td>Código IBGE</td>
+<td>Geográfica</td>
+    <td>3106200 (BH)</td>
+    <td>Melhor que o nome para o LightGBM.</td>
+    </tr>
+    </tbody>
+    <tr>
+<td><b>Risco_Classe</b></td>
+<td>int8 (0 ou 1)</td>
+<td>Classificação binária de ocorrência.</td>
+<td>Binário</td>
+<td>Target (Binário)</td>
+<td><b>0:</b> Sem Fogo / <b>1:</b> Fogo (Risco &gt; 0.5)</td>
+</tr>
+<tr>
+<td><b>Intensidade_Fogo</b></td>
+<td>int8 (0, 1, 2)</td>
+<td>Nível de energia e destruição do foco.</td>
+<td>Multiclasse</td>
+<td>Target (Ordinal)</td>
+<td>
+<b>0 (Baixo):</b> FRP &lt; 15MW
+
+<b>1 (Médio):</b> FRP 15-80MW
+
+<b>2 (Alto):</b> FRP &gt; 80MW
+  </table>
+</details>
