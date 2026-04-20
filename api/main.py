@@ -1,19 +1,43 @@
 from fastapi import FastAPI
-from routes import predict
+from fastapi.middleware.cors import CORSMiddleware
+
+from routers import dados, modelos, predicao, metricas
 
 app = FastAPI(
-    title="API de Predição de Queimadas",
-    description="Integração do modelo de Data Science com o sistema de software.",
-    version="1.0.0"
+    title="API de Queimadas — LightGBM",
+    description=(
+        "API para análise de queimadas com Machine Learning. "
+        "Permite consulta do dataset bdqueimadas_completo.parquet, "
+        "listagem de modelos LightGBM, predição de intensidade/ocorrência "
+        "e avaliação de eficiência dos modelos."
+    ),
+    version="1.0.0",
 )
 
-# Inclui as rotas que criamos
-app.include_router(predict.router, prefix="/v1", tags=["Machine Learning"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/health", tags=["System"])
-def health_check():
-    return {"status": "online", "model_loaded": True}
+app.include_router(dados.router)
+app.include_router(modelos.router)
+app.include_router(predicao.router)
+app.include_router(metricas.router)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+@app.get("/", tags=["Status"])
+def root():
+    return {
+        "status": "online",
+        "docs": "/docs",
+        "versao": "1.0.0",
+        "descricao": "API de Queimadas com LightGBM",
+    }
+
+
+@app.get("/health", tags=["Status"])
+def health():
+    return {"status": "healthy"}
