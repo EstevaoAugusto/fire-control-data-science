@@ -12,9 +12,10 @@ Suporta dois modelos LightGBM: **Classificação de Intensidade** e **Predição
 ```
 api/
 ├── main.py               # Entry point — FastAPI + routers
-├── schemas.py            # Modelos Pydantic (request/response)
-├── requirements.txt
+├── config_path.py        # Caminhos que a API tem acesso
 ├── README.md
+├── schemas/
+│   ├── schemas.py        # Modelos Pydantic (request/response)
 ├── routers/
 │   ├── dados.py          # /dados  — leitura de CSV/Parquet
 │   ├── modelos.py        # /modelos — listagem e info dos .joblib
@@ -32,10 +33,7 @@ api/
 ## 🚀 Instalação e Execução
 
 ```bash
-# 1. Instale as dependências
-pip install -r requirements.txt
-
-# 2. Inicie o servidor
+# 1. Inicie o servidor
 uvicorn main:app --reload --port 8000
 ```
 

@@ -10,18 +10,14 @@ Para visualizar o painel interativo localmente, siga os passos abaixo:
 
 ### 1. Pré-requisitos
 
-Certifique-se de que as dependências necessárias estão instaladas. Se ainda não instalou, execute:
-
-```bash
-uv sync
-```
+Certifique-se de que as dependências necessárias estão instaladas. Se ainda não instalou, execute o comando ```uv sync``` no diretório inicial do projeto.
 
 ### 2. Executação
 
-Navegue até a pasta raiz do projeto e execute o script do dashboard:
+Navegue até a pasta 'dashboard' e execute o comando abaixo:
 
 ```bash
-python dashboard/dashboard_base.py
+python dashboard_base.py
 ```
 
 ### 3. Acesso
