@@ -1,0 +1,43 @@
+# Ambientes Virtuais (Essencial ignorar para não conflitar com o venv do Docker)
+.venv/
+venv/
+env/
+ENV/
+
+# Caches do Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+htmlcov/
+
+# Ferramentas de Data Science e Notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+.jupyter/
+# Se você não quiser levar os notebooks para a API, descomente a linha abaixo:
+# notebooks/
+
+# Dados e Modelos Locais (Geralmente montados via volume, não incluídos na imagem)
+# data/
+# models/
+# metrics/
+
+# Logs e arquivos temporários
+*.log
+.DS_Store
+Thumbs.db
+.env
+.flaskenv
+
+# Git
+.git/
+.gitignore
+
+# Outros gerenciadores de pacotes e build
+dist/
+build/
+*.egg-info/

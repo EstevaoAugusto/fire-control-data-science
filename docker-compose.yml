@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zetta_api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Sincroniza o código para "Hot Reload" (mudou, salvou, atualizou)
+      - ./api:/app/api
+      - ./scripts:/app/scripts
+      - ./config_path.py:/app/config_path.py
+      # Persistência de dados e modelos
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./metrics:/app/metrics
+      - ./features:/app/features
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+      # Crucial para o import scripts.modeling funcionar
+      - PYTHONPATH=/app
+    restart: always
