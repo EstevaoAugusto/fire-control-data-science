@@ -1,0 +1,29 @@
+Possibilidades
+
+1. Criar dicionario de dados das ocorrencias historicas (dados reais) para a simulação de como o software seria
+2. Criar pipelines de coletas de dados de modo que possam ser integrados na API. Tal pipeline deverá ocorrer de forma continua para atualizar os registros e informações.
+Isso é factivel mas depende da abordagem.
+BeautifulSoup (site estatico)
+Selenium (site dinamico)
+
+3. Gerar um modelo de previsao de queimadas
+
+
+É preciso que eu veja como alimentar a API da Lorrana
+
+Tem até sexta-feira para validar as informações
+Melhor focar direto no dicionario e comos os dados estão
+
+
+Produtos ZettaLab que podem nos ajudar no desenvolvimento
+mgi-zetta.ufla.br
+
+Preciso ser seletivo sobre a quantidade de dados. Eu peguei informações demais tipo o caso do INMET
+e creio eu que esse 1GB de dados não seja muito utilizado
+
+É preciso garantir que a sequencia de gráficos faz sentido, ver se o storytelling está legal.
+Padronizar os gráficos com cores consistentes
+
+Quanto mais completo, melhor, uma API para o software acessar os dados é interessante. Ademais possibilitar que o usuario
+consiga baixar os dados do sistema seria bem interessante.
+
